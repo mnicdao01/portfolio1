@@ -20,5 +20,6 @@
     <![endif]-->
 
     <link rel="stylesheet" href="../css/parsley.css">
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
