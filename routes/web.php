@@ -20,4 +20,7 @@ Route::get('blog', ['uses'=>'BlogController@index', 'as' => 'blog.index']);
 
 Auth::routes();
 
-Route::get('/home', 'PostController@index');
+//Route::get('/home', 'PostController@index');
+
+//Category Resource
+Route::resource('categories', 'CategoryController', ['except' => ['create']]);
