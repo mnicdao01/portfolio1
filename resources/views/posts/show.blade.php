@@ -8,6 +8,10 @@
         </div>
         <div class="col-md-4">
             <div class="well">
+                    <dl class="dl-horizontal">
+                         <dt>Slug:</dt>
+                         <dd><a href="{{ url('blog/'.$post->slug) }}">{{ url('blog/'.$post->slug) }}</a></dd>
+                    </dl>
                    <dl class="dl-horizontal">
                         <dt>Created At:</dt>
                         <dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
@@ -24,7 +28,12 @@
 
                 </div>
                 <div class="col-sm-6">
-                     {!! Html::linkRoute('posts.destroy', 'Delete', array($post->id) ,array('class'=>'btn btn-danger btn-block')) !!}
+                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}
+                     {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-block']) !!}
+                     {!! Form::close() !!}
+                </div>
+                <div class="col-md-12">
+                    {!! Html::linkRoute('posts.index', 'View All', null , array('class'=>'btn btn-success btn-block btn-h1-spacing')) !!}
                 </div>
             </div>
         </div>

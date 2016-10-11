@@ -38,6 +38,12 @@
                 </tbody>
 
             </table>
+            <div class="text-center">
+                   {!! $posts->links(); !!}
+            </div>
+            <div class="text-center">
+                    Total Blog Post: {!! $posts->total(); !!} | Page {!! $posts->currentPage(); !!} of {!! $posts->lastPage(); !!}
+            </div>
         </div>
         </div>
 

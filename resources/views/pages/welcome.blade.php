@@ -13,30 +13,16 @@
         </div>
         <div class="row">
             <div class="col-md-8">
+            @foreach($posts as $post)
                 <div class="post">
-                    <h3>Post Title</h3>
-                    <p>Quisque quis risus eros. Sed id lacus ligula. Fusce lobortis tellus nec leo lacinia cursus eu eget orci. Aenean id odio dui. Sed iaculis, ligula quis molestie pellentesque, massa magna euismod justo, eu viverra mi lorem semper urna. Cras tempus sem sit amet ex gravida, ut aliquet ligula viverra. Nunc sit amet hendrerit nibh.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
+                    <h3>{{ $post->title }}</h3>
+                    <p>{{ strlen($post->body) >= 300 ? substr($post->body,0,300)." ..." : $post->body }}</p>
+                    <a href="" class="btn btn-primary">Read More</a>
                 </div>
-                <hr>
-                <div class="post">
-                      <h3>Post Title</h3>
-                      <p>Quisque quis risus eros. Sed id lacus ligula. Fusce lobortis tellus nec leo lacinia cursus eu eget orci. Aenean id odio dui. Sed iaculis, ligula quis molestie pellentesque, massa magna euismod justo, eu viverra mi lorem semper urna. Cras tempus sem sit amet ex gravida, ut aliquet ligula viverra. Nunc sit amet hendrerit nibh.</p>
-                      <a href="#" class="btn btn-primary">Read More</a>
-                  </div>
 
                 <hr>
-                <div class="post">
-                      <h3>Post Title</h3>
-                      <p>Quisque quis risus eros. Sed id lacus ligula. Fusce lobortis tellus nec leo lacinia cursus eu eget orci. Aenean id odio dui. Sed iaculis, ligula quis molestie pellentesque, massa magna euismod justo, eu viverra mi lorem semper urna. Cras tempus sem sit amet ex gravida, ut aliquet ligula viverra. Nunc sit amet hendrerit nibh.</p>
-                      <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-                <hr>
-                <div class="post">
-                      <h3>Post Title</h3>
-                      <p>Quisque quis risus eros. Sed id lacus ligula. Fusce lobortis tellus nec leo lacinia cursus eu eget orci. Aenean id odio dui. Sed iaculis, ligula quis molestie pellentesque, massa magna euismod justo, eu viverra mi lorem semper urna. Cras tempus sem sit amet ex gravida, ut aliquet ligula viverra. Nunc sit amet hendrerit nibh.</p>
-                      <a href="#" class="btn btn-primary">Read More</a>
-                </div>
+            @endforeach
+
 
             </div>
             <div class="col-md-3 col-md-offset-1"><h2>Sidebar</h2></div>
