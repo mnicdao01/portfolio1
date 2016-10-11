@@ -17,7 +17,7 @@
                 <div class="post">
                     <h3>{{ $post->title }}</h3>
                     <p>{{ strlen($post->body) >= 300 ? substr($post->body,0,300)." ..." : $post->body }}</p>
-                    <a href="" class="btn btn-primary">Read More</a>
+                    <a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary">Read More</a>
                 </div>
 
                 <hr>

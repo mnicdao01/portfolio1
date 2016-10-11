@@ -9,6 +9,10 @@ use App\Http\Requests;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +50,7 @@ class PostController extends Controller
         //
         $this->validate($request, array(
             'title' => 'required|max:255',
-            'slug' => 'required|alphadash|max:255|min:6|unique:posts.slug',
+            'slug' => 'required|alphadash|max:255|min:6',
             'body' => 'required'
         ));
 
