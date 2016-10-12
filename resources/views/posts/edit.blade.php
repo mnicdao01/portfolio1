@@ -12,6 +12,9 @@
                {!! Form::label('slug', 'Slug:') !!}
                {!! Form::text('slug', null, array('class' => 'form-control', 'required' => 'true', 'maxlength' => '255', 'minlength'=>'6'))  !!}
 
+               {!! Form::label('category_id', 'Category:') !!}
+               {!! Form::select('category_id', $categories, null, ['class'=>'form-control'])  !!}
+
                {!! Form::label('body', 'Post Body:') !!}
                {!! Form::textarea('body', null,  array('class' => 'form-control', 'required' => 'true'))  !!}
 

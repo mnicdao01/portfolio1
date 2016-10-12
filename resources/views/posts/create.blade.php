@@ -13,10 +13,18 @@
                 {!! Form::label('slug', 'Slug:') !!}
                 {!! Form::text('slug', null,  array('class' => 'form-control', 'placeholder' => 'Slug goes here', 'required' => 'true', 'maxlength' => '255', 'minlength' => '6'))  !!}
 
-                 {!! Form::label('body', 'Post Body:') !!}
-                 {!! Form::textarea('body', null,  array('class' => 'form-control', 'placeholder' => 'Your message here...', 'required' => 'true'))  !!}
+                {!! Form::label('category', 'Category:') !!}
+                <select class="form-control" name="category_id">
+                    @foreach($categories as $cat)
+                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                    @endforeach
 
-                 {!! Form::submit('Create New Post', array('class' => 'btn btn-success btn-block'))!!}
+                </select>
+
+                {!! Form::label('body', 'Post Body:') !!}
+                {!! Form::textarea('body', null,  array('class' => 'form-control', 'placeholder' => 'Your message here...', 'required' => 'true'))  !!}
+
+                {!! Form::submit('Create New Post', array('class' => 'btn btn-success btn-block'))!!}
             {!! Form::close() !!}
 
 

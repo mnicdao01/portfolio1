@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 use Session;
@@ -35,7 +36,9 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('posts.create');
+        $categories = Category::all();
+
+        return view('posts.create')->withCategories($categories);
 
     }
 
@@ -50,7 +53,9 @@ class PostController extends Controller
         //
         $this->validate($request, array(
             'title' => 'required|max:255',
+            'title' => 'required|max:255',
             'slug' => 'required|alphadash|max:255|min:6',
+            'category_id' => 'required|numeric',
             'body' => 'required'
         ));
 
@@ -58,6 +63,7 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
         $post->body = $request->body;
 
 
@@ -95,9 +101,17 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::all();
         $post = Post::find($id);
+
+        $cats = array();
+
+        foreach($categories as $categories){
+            $cats[$categories->id] = $categories->name;
+        }
+
         //
-        return view('posts/edit')->withPost($post);
+        return view('posts/edit')->withPost($post)->withCategories($cats);
     }
 
     /**
@@ -110,17 +124,28 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $post = Post::find($id);
 
-        $this->validate($request, array(
-            'title' => 'required|max:255',
-            'slug' => 'required|alphadash|min:6|max:255|unique:posts.slug',
-            'body' => 'required'
-        ));
+        if($request->slug == $post->slug){
+            $this->validate($request, array(
+                'title' => 'required|max:255',
+                'category_id' => 'required|integer',
+                'body' => 'required'
+            ));
+        } else {
+            $this->validate($request, array(
+                'title' => 'required|max:255',
+                'slug' => 'required|alphadash|min:6|max:255|unique:posts.slug',
+                'category_id' => 'required|integer',
+                'body' => 'required'
+            ));
+        }
 
         $post = Post::find($id);
 
         $post->title = $request->title;
         $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
         $post->body = $request->body;
 
         $post->save();
