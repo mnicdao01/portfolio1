@@ -12,6 +12,7 @@
 */
 
 Route::get('/contact', 'PagesController@getContact');
+Route::post('/contact', ['as' => 'pages.contact', 'uses' => 'PagesController@postContact']);
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/', 'PagesController@getIndex');
 Route::resource('posts', 'PostController');
