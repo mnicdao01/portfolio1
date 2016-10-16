@@ -24,3 +24,4 @@ Auth::routes();
 
 //Category Resource
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
+Route::resource('tags', 'TagController', ['except' => ['create']]);

@@ -2,6 +2,8 @@
 @section('title', 'Modify Post')
 @section('content')
 
+
+
     <div class="row">
             <div class="col-md-8">
                {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT'])!!}

@@ -4,9 +4,124 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5da2fcde26cf16815916213466f649d2",
-    "content-hash": "3b1af0917fc659fde6d9bdbc6aa16ffb",
+    "hash": "de6101b9a3712a27bf2b0bbfa586b2e8",
+    "content-hash": "b0e3dc1074e5716d52898583229a28f7",
     "packages": [
+        {
+            "name": "barryvdh/laravel-ide-helper",
+            "version": "v2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-ide-helper.git",
+                "reference": "28af7cd19ca41cc0c63dd1de2b46c2b84d31c463"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/28af7cd19ca41cc0c63dd1de2b46c2b84d31c463",
+                "reference": "28af7cd19ca41cc0c63dd1de2b46c2b84d31c463",
+                "shasum": ""
+            },
+            "require": {
+                "barryvdh/reflection-docblock": "^2.0.4",
+                "illuminate/console": "^5.0,<5.4",
+                "illuminate/filesystem": "^5.0,<5.4",
+                "illuminate/support": "^5.0,<5.4",
+                "php": ">=5.4.0",
+                "symfony/class-loader": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "~2.3",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "suggest": {
+                "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\LaravelIdeHelper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
+            "keywords": [
+                "autocomplete",
+                "codeintel",
+                "helper",
+                "ide",
+                "laravel",
+                "netbeans",
+                "phpdoc",
+                "phpstorm",
+                "sublime"
+            ],
+            "time": "2016-07-04 11:52:48"
+        },
+        {
+            "name": "barryvdh/reflection-docblock",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/ReflectionDocBlock.git",
+                "reference": "3dcbd98b5d9384a5357266efba8fd29884458e5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/ReflectionDocBlock/zipball/3dcbd98b5d9384a5357266efba8fd29884458e5c",
+                "reference": "3dcbd98b5d9384a5357266efba8fd29884458e5c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0,<4.5"
+            },
+            "suggest": {
+                "dflydev/markdown": "~1.0",
+                "erusev/parsedown": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Barryvdh": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "mike.vanriel@naenius.com"
+                }
+            ],
+            "time": "2016-06-13 19:28:20"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",
@@ -694,6 +809,59 @@
             "time": "2016-01-26 21:23:30"
         },
         {
+            "name": "nahid/talk",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nahid/talk.git",
+                "reference": "c99a0f0824c73ba0f539a23c6e674b6cc4128d7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nahid/talk/zipball/c99a0f0824c73ba0f539a23c6e674b6cc4128d7d",
+                "reference": "c99a0f0824c73ba0f539a23c6e674b6cc4128d7d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.0.* || 5.1.* || 5.2.* || 5.3.*",
+                "illuminate/support": "5.0.* || 5.1.* || 5.2.* || 5.3.*",
+                "nesbot/carbon": "^1.21",
+                "php": ">=5.4.0",
+                "sebastian-berc/repositories": "^1.0"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^3.1",
+                "phpunit/phpunit": "^4.8 || ^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nahid\\Talk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Creative Commons"
+            ],
+            "authors": [
+                {
+                    "name": "Nahid Bin Azhar",
+                    "email": "nahid.dns@gmail.com"
+                }
+            ],
+            "description": "Talk is a PHP based users conversations library. It helps to develop users messages and conversations in easy way. Talk also support Laravel 5>=",
+            "homepage": "https://github.com/nahid/talk",
+            "keywords": [
+                "chat",
+                "conversations",
+                "inbox",
+                "laravel",
+                "message",
+                "php"
+            ],
+            "time": "2016-08-22 08:22:39"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "1.21.0",
             "source": {
@@ -1039,6 +1207,64 @@
             "time": "2016-10-02 15:51:17"
         },
         {
+            "name": "sebastian-berc/repositories",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SebastianBerc/Repositories.git",
+                "reference": "26e3041e4bdfabb22f2c46ee4362f152718eb444"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SebastianBerc/Repositories/zipball/26e3041e4bdfabb22f2c46ee4362f152718eb444",
+                "reference": "26e3041e4bdfabb22f2c46ee4362f152718eb444",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.0|~5.1",
+                "illuminate/database": "~5.0|~5.1",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "^1.4",
+                "laracasts/testdummy": "^2.3",
+                "mockery/mockery": "^0.9.4",
+                "orchestra/testbench": "3.0.*",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SebastianBerc\\Repositories\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Berć",
+                    "email": "contact@sebastian-berc.pl",
+                    "homepage": "http://sebastian-berc.pl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Flexable Laravel ~5.0 Repository Library.",
+            "homepage": "https://github.com/SebastianBerc/Repositories",
+            "keywords": [
+                "league",
+                "repository"
+            ],
+            "time": "2015-10-09 22:53:54"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.3",
             "source": {
@@ -1090,6 +1316,62 @@
                 "mailer"
             ],
             "time": "2016-07-08 11:51:25"
+        },
+        {
+            "name": "symfony/class-loader",
+            "version": "v3.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/class-loader.git",
+                "reference": "bcb072aba46ddf3b1a496438c63be6be647739aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/bcb072aba46ddf3b1a496438c63be6be647739aa",
+                "reference": "bcb072aba46ddf3b1a496438c63be6be647739aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/polyfill-apcu": "~1.1"
+            },
+            "suggest": {
+                "symfony/polyfill-apcu": "For using ApcClassLoader on HHVM"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ClassLoader\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony ClassLoader Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-09-06 23:30:54"
         },
         {
             "name": "symfony/console",

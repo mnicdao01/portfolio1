@@ -31,22 +31,28 @@
                                                     </a>
 
                                                     <ul class="dropdown-menu" role="menu">
-                                                        <li>
-                                                            <a href="{{ url('/logout') }}"
-                                                                onclick="event.preventDefault();
-                                                                         document.getElementById('logout-form').submit();">
-                                                                Logout
-                                                            </a>
 
-                                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                                                {{ csrf_field() }}
-                                                            </form>
+
+                                                        <li>
+                                                            <a href="{{ route('posts.index') }}"> Posts</a>
                                                         </li>
                                                         <li>
                                                             <a href="{{ route('categories.index') }}"> Categories</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ route('posts.index') }}"> Posts</a>
+                                                            <a href="{{ route('tags.index') }}"> Tags</a>
+                                                        </li>
+                                                        <li class="separator"></li>
+                                                        <li>
+                                                            <a href="{{ url('/logout') }}"
+                                                                  onclick="event.preventDefault();
+                                                                  document.getElementById('logout-form').submit();">
+                                                                    Logout
+                                                            </a>
+
+                                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                                                  {{ csrf_field() }}
+                                                             </form>
                                                         </li>
                                                     </ul>
                                                 </li>
