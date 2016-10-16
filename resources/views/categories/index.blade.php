@@ -1,5 +1,8 @@
 @extends('main')
 @section('title', ' Categories')
+
+
+
 @section('content')
     <div class="row">
            <div class="col-md-12">
@@ -38,10 +41,11 @@
                  {{ Form::label('name', 'Name:') }}
                  {{ Form::text('name',null ,['class' => 'form-control']) }}
 
-                 {{ Form::submit('Create New Category', ['class'=>'btn btn-primary btn-block']) }}
+                 {{ Form::submit('Create New Category', ['class'=>'btn btn-primary btn-block btn-h1-spacing']) }}
                 {!! Form::close()!!}
             </div>
         </div>
     </div>
 
 @endsection
+

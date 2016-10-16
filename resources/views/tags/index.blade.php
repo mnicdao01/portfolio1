@@ -15,14 +15,15 @@
                     <tr>
                         <th>#</th>
                         <th>Tag Name</th>
+
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($tags as $tag)
                     <tr>
                         <td>{{ $tag->id }}</td>
-                        <td>{{ $tag->name }}</td>
-                        <td></td>
+                        <td><a href="{{ route('tags.show', $tag->id) }}">{{ $tag->name }}</a></td>
+
                     </tr>
                 @endforeach
 
@@ -38,7 +39,7 @@
                  {{ Form::label('name', 'Name:') }}
                  {{ Form::text('name',null ,['class' => 'form-control']) }}
 
-                 {{ Form::submit('Create New Tag', ['class'=>'btn btn-primary btn-block']) }}
+                 {{ Form::submit('Create New Tag', ['class'=>'btn btn-primary btn-block btn-h1-spacing']) }}
                 {!! Form::close()!!}
             </div>
         </div>

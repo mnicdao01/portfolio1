@@ -1,5 +1,8 @@
 @extends('main')
 @section('title', 'Modify Post')
+@section('stylesheets')
+    {!! Html::style('css/select2.min.css') !!}
+@endsection
 @section('content')
 
 
@@ -20,6 +23,8 @@
                {!! Form::label('body', 'Post Body:') !!}
                {!! Form::textarea('body', null,  array('class' => 'form-control', 'required' => 'true'))  !!}
 
+                {!! Form::label('tags', 'Tags:') !!}
+                {!! Form::select('tags[]', $tags, null, ['class'=>'form-control select2-multi', 'multiple'=>'multiple'])!!}
             </div>
             <div class="col-md-4">
                 <div class="well">
@@ -46,4 +51,12 @@
             {!! Form::close() !!}
         </div>
 
+@endsection
+
+@section('scripts')
+    {!! Html::script('js/select2.full.js') !!}
+    <script>
+        $('.select2-multi').select2();
+        $('.select2-multi').select2().val({!! json_encode($post->tags()->getRelatedIds()); !!}).trigger('change');
+    </script>
 @endsection

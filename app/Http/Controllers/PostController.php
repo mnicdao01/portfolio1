@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Session;
 use App\Http\Requests;
@@ -37,8 +38,9 @@ class PostController extends Controller
     {
         //
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('posts.create')->withCategories($categories);
+        return view('posts.create')->withCategories($categories)->withTags($tags);
 
     }
 
@@ -51,6 +53,9 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+//        dd($request); //this is Die and Dump to show $request contents
+
+
         $this->validate($request, array(
             'title' => 'required|max:255',
             'title' => 'required|max:255',
@@ -68,6 +73,8 @@ class PostController extends Controller
 
 
         $post->save();
+
+        $post->tags()->sync($request->tags, false); //This code will sync up the associations
 
         Session::flash('success', 'Save Successfully!');
 
@@ -103,15 +110,21 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $post = Post::find($id);
+        $tagsAll = Tag::all();
 
         $cats = array();
+        $tags = array();
 
         foreach($categories as $categories){
             $cats[$categories->id] = $categories->name;
         }
 
+        foreach($tagsAll as $tagsAll){
+            $tags[$tagsAll->id] = $tagsAll->name;
+        }
+
         //
-        return view('posts/edit')->withPost($post)->withCategories($cats);
+        return view('posts/edit')->withPost($post)->withCategories($cats)->withTags($tags);
     }
 
     /**
@@ -149,6 +162,13 @@ class PostController extends Controller
         $post->body = $request->body;
 
         $post->save();
+        if(isset($request->tags)){
+            $post->tags()->sync($request->tags, true);
+        }else{
+            $post->tags()->sync([]);
+        }
+
+
 
         Session::flash('success', 'Changes Were Saved Successfully');
 

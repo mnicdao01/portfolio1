@@ -6,6 +6,7 @@ use App\Tag;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
 use Illuminate\Support\Facades\Session;
 
 class TagController extends Controller
@@ -63,7 +64,9 @@ class TagController extends Controller
     public function show($id)
     {
         //
+        $tag = Tag::find($id);
 
+        return view('tags.show')->withTag($tag);
     }
 
     /**
@@ -75,6 +78,11 @@ class TagController extends Controller
     public function edit($id)
     {
         //
+
+
+        $tag = Tag::find($id);
+
+        return view('tags.edit')->withTag($tag);
     }
 
     /**
@@ -87,6 +95,20 @@ class TagController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $tag = Tag::find($id);
+
+        $this->validate($request, [
+            "title" => "required|max:255"
+        ]);
+
+        $tag->name = $request->title;
+
+        $tag->save();
+
+        Session::flash('success', 'Tag saved successfully!');
+
+        return redirect()->route('tags.show', $tag->id);
+
     }
 
     /**
